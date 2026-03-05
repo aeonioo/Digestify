@@ -2,6 +2,7 @@
 from google.oauth2.credentials import Credentials
 from googleapiclient.discovery import build
 import requests
+import html
 from dotenv import load_dotenv
 from langchain.tools import tool
 from langchain.chat_models import init_chat_model
@@ -107,12 +108,12 @@ Rules:
 
 Format the output exactly like this:
 
-<b> Daily Inbox Action Summary </b>
+Daily Inbox Action Summary (in bold)
 ━━━━━━━━━━━━━━━━━━
 Date: {datetime.now().strftime("%d %b %Y")}
 Total Emails Today: {len(messages)}
 
-<action items> 
+(action items)
 
 ━━━━━━━━━━━━━━━━━━
 This summary includes only important and time-sensitive tasks.
@@ -141,6 +142,7 @@ response = agent.invoke({
 
 output_content = response['messages'][-1].content
 
+safe_message = html.escape(output_content)
 
 # DISPLAYING OUTPUT ON TELEGRAM BOT
 
@@ -162,7 +164,7 @@ def send_to_telegram(content: str):
     else:
         print(f"Failed to send message: {response.status_code} | {response.text}")
         
-send_to_telegram(output_content)
+send_to_telegram(safe_message)
 
 
 
