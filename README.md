@@ -33,7 +33,7 @@ The workflow runs automatically every day using **GitHub Actions**, so your inbo
 
 ## Clone the Repository
 
-    git clone https://github.com/yourusername/ai-inbox-digest.git
+    git clone [https://github.com/yourusername/ai-inbox-digest.git](https://github.com/aeonioo/AI-Inbox-Digest.git)
     cd ai-inbox-digest
 
 ## Install Dependencies
@@ -43,5 +43,6 @@ The workflow runs automatically every day using **GitHub Actions**, so your inbo
 ## Setup Gmail API
 
 Enable the Gmail API in the Google Cloud Console, create an OAuth Client ID, and download the credentials.json. Run the script locally once to generate token.json, then use these credentials to integrate Gmail with your Telegram bot and automate it through GitHub Actions.
+
 
 
