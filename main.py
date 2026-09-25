@@ -89,7 +89,7 @@ for i, msg in enumerate(messages, start=1):
 # LANGCHAIN + LLM LOGIC
 
 model = ChatMistralAI(
-    model="mistral-large-latest",   # or "mistral-small-latest"
+    model="mistral-small-latest",   # or "mistral-small-latest"
     temperature=0,
 )
 
